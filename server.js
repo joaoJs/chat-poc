@@ -36,6 +36,10 @@ app.get('/conversation/:conversationId', async (req, res) => {
   }
 });
 
+app.post('/webhook', async (req,res) => {
+  console.log(req.body);
+});
+
 const startServer = () => {
  
   app.listen(port, () => {
