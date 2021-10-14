@@ -20,9 +20,11 @@ app.get('/', (req, res) => {
 app.get('/conversation/:conversationId', async (req, res) => {
   const { conversationId } = req.params;
   // const response = await axios(`https://driftapi.com/conversations/${conversationId}/messages?next(optional)`);
-  const response = await axios(`https://driftapi.com/conversations/list`);
-  console.log(response);
-  res.json(response);
+  const responseOne = await axios(`https://driftapi.com/conversations/list`);
+  console.log(responseOne);
+  const responseTwo = await axios(`https://driftapi.com/conversations/${conversationId}`);
+  console.log(responseTwo);
+  res.json(responseOne);
 });
 
 const startServer = () => {
