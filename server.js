@@ -37,8 +37,8 @@ app.get('/conversation/:conversationId', async (req, res) => {
 });
 
 app.post('/webhook', async (req,res) => {
+  console.log('in webbhook');
   console.log(req.body);
-  console.log(req.body.data.messages)
 });
 
 const startServer = () => {
