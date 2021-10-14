@@ -29,7 +29,7 @@ app.get('/conversation/:conversationId', async (req, res) => {
   
   try {
     const response = await chatObj.getConvo(message);
-    console.log(response);
+    // console.log(response);
     res.json(response);
   } catch (error) {
     console.log(error);
