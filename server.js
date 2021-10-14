@@ -20,17 +20,28 @@ app.get('/', (req, res) => {
 app.get('/conversations/', async (req, res) => {
   const { conversationId } = req.params;
   // const response = await axios(`https://driftapi.com/conversations/${conversationId}/messages?next(optional)`);
-  const response = await axios(`https://driftapi.com/conversations/list`);
-  console.log(response);
-  res.json(response);
+  try {
+    const response = await axios(`https://driftapi.com/conversations/list`);
+    console.log(response);
+    res.json(response);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.get('/conversation/:conversationId', async (req, res) => {
   const { conversationId } = req.params;
   // const response = await axios(`https://driftapi.com/conversations/${conversationId}/messages?next(optional)`);
-  const response = await axios(`https://driftapi.com/conversations/${conversationId}`);
-  console.log(response);
-  res.json(response);
+  chatObj.getConvo(conversationId)
+    .then(response => response.json())
+    .then(response => console.log(response));
+  // try {
+  //   const response = await axios(`https://driftapi.com/conversations/${conversationId}`);
+  //   console.log(response);
+  //   res.json(response);
+  // } catch (error) {
+  //   console.log(error);
+  // }
 });
 
 const startServer = () => {
