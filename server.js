@@ -14,6 +14,12 @@ const port = process.env.PORT || 3001;
 
 app.use(cors())
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
 const chatObj = new Drift(process.env.DRIFT_OAUTH_TOKEN);
 
 const intercomClient = new Intercom.Client({ token: process.env.INTERCOM_ACCESS_TOKEN });
