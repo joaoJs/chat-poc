@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const axios = require('axios');
 const cors = require('cors')
 const Intercom = require('intercom-client');
+const bodyParser = require('body-parser')
+
 
 dotenv.config();
 
