@@ -52,7 +52,7 @@ app.post('/webhook', async (req,res) => {
   console.log(req.body)
   console.log('in webbhook');
   console.log('+++++++++++++++=============')
-  console.log(req.body.data);
+  console.log(req.body.data.item);
 
   // call intercom to get data from user 
 })
