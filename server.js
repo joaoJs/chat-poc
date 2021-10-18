@@ -54,6 +54,12 @@ app.post('/webhook', async (req,res) => {
   console.log('+++++++++++++++=============')
   console.log(req.body.data.item);
 
+  // Find user by user_id
+  intercomClient.users.find({ user_id: req.body.data.item.user_id }, async (data) => {
+    const userInfo = await data.json();
+    console.log(userInfo);
+  });
+
   // call intercom to get data from user 
 })
 
