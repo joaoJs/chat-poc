@@ -49,10 +49,10 @@ app.get('/conversation/:conversationId', async (req, res) => {
 
 app.post('/webhook', async (req,res) => {
   console.log('+++++++++++++++=============')
-  console.log(req)
+  console.log(req.body)
   console.log('in webbhook');
   console.log('+++++++++++++++=============')
-  console.log(req.body);
+  console.log(req.body.metadata);
 
   // call intercom to get data from user 
 })
