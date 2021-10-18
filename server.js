@@ -3,6 +3,7 @@ const Drift = require('drift-chat');
 const dotenv = require('dotenv');
 const axios = require('axios');
 const cors = require('cors')
+const Intercom = require('intercom-client');
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ const port = process.env.PORT || 3001;
 app.use(cors())
 
 const chatObj = new Drift(process.env.DRIFT_OAUTH_TOKEN);
+
+const intercomClient = new Intercom.Client({ token: process.env.INTERCOM_ACCESS_TOKEN });
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -37,9 +40,12 @@ app.get('/conversation/:conversationId', async (req, res) => {
 });
 
 app.post('/webhook', async (req,res) => {
+  console.log('+++++++++++++++=============')
+  console.log(req)
   console.log('in webbhook');
+  console.log('+++++++++++++++=============')
   console.log(req.body);
-});
+})
 
 const startServer = () => {
  
