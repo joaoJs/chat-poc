@@ -48,12 +48,9 @@ app.get('/conversation/:conversationId', async (req, res) => {
 });
 
 app.post('/webhook', async (req,res) => {
-  console.log('+++++++++++++++=============')
-  console.log(req.body)
-  console.log('in webbhook');
-  console.log('+++++++++++++++=============')
   console.log(req.body.data.item);
 
+  console.log('Joao C')
   // Find user by user_id
   intercomClient.users.find({ user_id: req.body.data.item.user_id }, async (data) => {
     console.log(data);
