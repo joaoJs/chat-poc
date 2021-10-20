@@ -28,6 +28,15 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/intercom/:conversationId', (req, res) => {
+  const { conversationId } = req.params;
+  console.log(conversationId);
+  intercomClient.conversations.find({ id: conversationId}, (conversations) => {
+    console.log(conversations);
+    res.json(conversations);
+  });
+});
+
 app.get('/conversation/:conversationId', async (req, res) => {
   const { conversationId } = req.params;
   const message = {
